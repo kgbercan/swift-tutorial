@@ -20,7 +20,7 @@ The Swift projects with the most stars on GitHub are:
 
 # Resources
 
-As I research and learn Swift over the next few months, I plan to use the [Swift 2.1 Language Guide from the iOS Developer Library] (https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309) and the [iOS Developer Library] in general (https://developer.apple.com/library/ios/navigation/#section=Topics&topic=Swift).
+As I research and learn Swift over the next few months, I plan to use the [Swift 2.1 Language Guide from the iOS Developer Library] (https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309) and the [iOS Developer Library] (https://developer.apple.com/library/ios/navigation/#section=Topics&topic=Swift).
 
 If needed, I may make use of StackOverflow, but carefully, as not all suggestions are the best solutions.
 
