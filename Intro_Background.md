@@ -2,7 +2,7 @@
 
 Swift is a general-purpose, high-level programming language used to write applications for Apple products. It is protocol-oriented, object-oriented, functional, imperative, and block structured. Swift is compiled and does not use a virtual machine.
 
-As Swift is open-source, there are versions in development available for (download) [https://swift.org/download/#latest-development-snapshots], but the only version of Swift that can be used to write apps submitted to the App Store is the release that comes with Xcode, Swift 2.
+As Swift is open-source, there are versions in development available for [download] (https://swift.org/download/#latest-development-snapshots), but the only version of Swift that can be used to write apps submitted to the App Store is the release that comes with Xcode, Swift 2.
 
 # History
 
@@ -13,13 +13,14 @@ Swift is intended to be easier to use than Objective-C, as Swift features syntax
 # Usage
 
 The Swift projects with the most stars on GitHub are:
+
 1. Alamofire: https://github.com/Alamofire/Alamofire
 2. SwiftJSON: https://github.com/SwiftyJSON/SwiftyJSON
 3. SwiftGuide: https://github.com/ipader/SwiftGuide
 
 # Resources
 
-As I research and learn Swift over the next few months, I plan to use the [Swift 2.1 Language Guide from the iOS Developer Library] (https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309) and the (iOS Developer Library) in general [https://developer.apple.com/library/ios/navigation/#section=Topics&topic=Swift].
+As I research and learn Swift over the next few months, I plan to use the [Swift 2.1 Language Guide from the iOS Developer Library] (https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309) and the [iOS Developer Library] in general (https://developer.apple.com/library/ios/navigation/#section=Topics&topic=Swift).
 
 If needed, I may make use of StackOverflow, but carefully, as not all suggestions are the best solutions.
 
