@@ -4,8 +4,11 @@ Swift is typically installed by downloading the appropriate programming environm
 You may notice that Swift.org only gives instructions for downloading to OS X and Linux. Apple does not have IDEs for any other operating systems, so if you do not have a Mac or Linux machine, you may not be able to code in Swift.
 
 ## Installing on an OS X Machine
-https://swift.org/download/#apple-platforms
+The IDE for Swift on a Mac is Xcode. To download Xcode, simply open the App Store on your Mac, search for Xcode, and download it for free.
 
+Note that Swift.org features instructions for [getting Swift on Apple platforms] (https://swift.org/download/#apple-platforms), but that these instructions **only apply to those who want to try a version of Swift that is not officially released.** If you want to use the most current version of Swift backed by Apple, just download Xcode as I've described above.
+
+## Installing on a Linux Machine
 
 
 ## Installing on a non-OS X, non-Linux Machine
@@ -13,7 +16,7 @@ As I use a Mac, I cannot personally try any of the following work-arounds for no
 
 - For programmers on Windows machines, check out [Silver] (http://elementscompiler.com/elements/silver/), a Swift IDE.
 
-- You can also look into using a virtual machine. While I think it's against Apple licensing terms to run OS X on non-Apple hardware, you could try Linux. (VirtualBox) [https://www.virtualbox.org/] is popular and open-source.
+- You can also look into using a virtual machine. While I think it's against Apple licensing terms to run OS X on non-Apple hardware, you could try Linux. [VirtualBox] (https://www.virtualbox.org/) is popular and open-source.
 
 - For programmers who do not want to/cannot install anything at all, try [RunSwift] (http://www.runswiftlang.com/), a website which allows you to use Swift in the browser. This requires an internet connection and seems only to support Swift 1.2, not the most up-to-date version, Swift 2.
 
