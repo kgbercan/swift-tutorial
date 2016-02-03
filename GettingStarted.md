@@ -45,11 +45,13 @@ var str = "Hello, playground"
 
 You can see that it imports UIKit for you, which is a framework that allows you to build a user interface and use event handlers. You don't need it simply to print "Hello, world," in Playground, but you can read more about it here: https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIKit_Framework/
 
-In the top right hand corner of the window, you see three buttons that control which panels you see. Click them to open or close the panels. The only one you really need to write to the console is the "Debug area," which will appear on the bottom of the screen.
+**To start a project:** Open Xcode, select File > New > New Project. You then choose among various templates based on the application you want to build; single view application provides enough code to simulate an app without too much unnecessary code. You'll be prompted to name your project, and on that same pop-up window, you can choose the language and device you're writing for. Make sure the language is Swift.
 
-**To start a project:** Open Xcode, select File > New > New Project. You then choose among various templates based on the application you want to build; single view application provides enough code to simulate an app without too much unnecessary code.
+When your project template opens, you will see many folders and files on the left side of the window. The important stuff is in the very first folder. The first file in that folder is called "AppDelegate.swift." Open that and notice that, again, Xcode gives you a lot of code to start with. It gives you the UIKit to control your interface, @UIApplicationMain, and a class. This file holds your app behaviors for when it opens, closes, etc... Each function in this file has Xcode-provided comments explaining what they do.
 
 ## Hello, World!
+
+In the top right hand corner of the Xcode window, you see three buttons that control which panels you see. Click them to open or close the panels. The only one you really need to write to the console is the "Debug area," which will appear on the bottom of the screen. If you are doing this in a project, make sure you also have the left panel open, the Navigator.
 
 "Hello, world" in Swift looks like this:
 
@@ -62,9 +64,9 @@ In the top right hand corner of the window, you see three buttons that control w
 print("Hello, world")
 ```
 
-You can type this into Playground and see the result on the sidebar.
+You can type the print statement into Playground and see the result on the sidebar. If your Debug area is open, the program will run automatically (if not, simply press the little triangle button at the top of the console/debug area to run it) and you should see the string printed in the console.
 
-Or, you can write it as a project. If you selected a single view application, look for _____ and replace it with the code above.
+Or, you can write it as a project. If you selected a single view application, go into the AppDelegate.swift file as instructed above, and find the first function--it's called "application." Inside application, just write the print statement. Press command-s on your keyboard to save your change and press the play button in the top left corner of the Xcode window. Give it about 15 seconds; the simmulator will open a blank app and then the console in the Xcode window will show "Hello, world." You can quit the simulator to stop running the app.
 
 # Sources
 
