@@ -64,9 +64,9 @@ In the top right hand corner of the Xcode window, you see three buttons that con
 print("Hello, world")
 ```
 
-You can type the print statement into Playground and see the result on the sidebar. If your Debug area is open, the program will run automatically (if not, simply press the little triangle button at the top of the console/debug area to run it) and you should see the string printed in the console.
+You can type the print statement into Playground and see the result on the sidebar. There is really no boilerplate when using Playground. If your Debug area is open, the program will run automatically (if not, simply press the little triangle button at the top of the console/debug area to run it) and you should see the string printed in the console.
 
-Or, you can write it as a project. If you selected a single view application, go into the AppDelegate.swift file as instructed above, and find the first function--it's called "application." Inside application, just write the print statement. Press command-s on your keyboard to save your change and press the play button in the top left corner of the Xcode window. Give it about 15 seconds; the simmulator will open a blank app and then the console in the Xcode window will show "Hello, world." You can quit the simulator to stop running the app.
+Or, you can write it as a project. There is lots of boiler plate when writing an app, but that's all given to you in the templates in Xcode; most of it seems to be app behaviors. If you selected a single view application, go into the AppDelegate.swift file as instructed above, and find the first function--it's called "application." Inside application, just write the print statement. Press command-s on your keyboard to save your change and press the play button in the top left corner of the Xcode window. Give it about 15 seconds; the simmulator will open a blank app and then the console in the Xcode window will show "Hello, world." You can quit the simulator to stop running the app.
 
 # Sources
 
