@@ -33,9 +33,21 @@ As I use a Mac, I cannot personally try any of the following work-arounds for no
 
 Xcode has a feature called [Playground] (https://developer.apple.com/library/ios/recipes/Playground_Help/Chapters/AboutPlaygrounds.html) where you write code and see results immediately on a side panel. It reminds me of the Python shell because it displays your work immediately and you can use it to test bits of code before saving to a file and running it. A [Project] (https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Projects.html), on the other hand, is just what it sounds like--it gets you started with a set of all the files that you'll need to compile and run to see the effects of what you've written.
 
-To use Playground, open Xcode, select File > New > Playground.
+**To use Playground:** Open Xcode, select File > New > Playground. You are prompted to name your .playground file, so you can save your work. When Playground opens, the default code is:
 
-To start a project, open Xcode, select File > New > New Project. You then choose among various templates based on the application you want to build; single view application provides enough code to simulate an app without too much unnecessary code.
+```
+//: Playground - noun: a place where people can play
+
+import UIKit
+
+var str = "Hello, playground"
+```
+
+You can see that it imports UIKit for you, which is a framework that allows you to build a user interface and use event handlers. You don't need it simply to print "Hello, world," in Playground, but you can read more about it here: https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIKit_Framework/
+
+In the top right hand corner of the window, you see three buttons that control which panels you see. Click them to open or close the panels. The only one you really need to write to the console is the "Debug area," which will appear on the bottom of the screen.
+
+**To start a project:** Open Xcode, select File > New > New Project. You then choose among various templates based on the application you want to build; single view application provides enough code to simulate an app without too much unnecessary code.
 
 ## Hello, World!
 
