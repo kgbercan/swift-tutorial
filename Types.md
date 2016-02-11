@@ -1,3 +1,33 @@
+# Variables and Constants
+
+## Declaration
+
+Swift uses **variables** to hold values that can change throughout your program and **constants** to hold values that cannot change once set. To distinguish between these two, Swift requires declaring which one the value is--use `var` to declare a variable and `let` to declare a constant.
+
+While it is necessary to declare variable or constant, it is not necessary to declare a type; Swift is not strongly-typed and infers from the value given what its type is. However, Swift *is* type-safe, so a variable of one type can only hold data of that type. You may choose to specify which type the variable or constant can hold by using a **type annotation**. After the variable or constant name, type a colon, a space, and the type.
+
+To change the type of a variable, enclose it in parentheses and precede it with the desired type, like this: `String(40)`. If you perform a narrowing conversion and convert a `Double` to an `Int`, the value is rounded to its floor--`Int(5.89)` is 5 and `Int(-2.8)` is -2. If you combine an `Int` and a floating-point number in Swift, you do not have to "manually" convert it; the result is inferred to be a `Double`, which is a widening conversion.
+
+```swift
+// simply declare a variable/constant
+let prop: String
+let maximum
+
+// initialize a variable/constant
+var count: Int = 1
+var favColor = "yellow"
+
+// not okay and will return errors
+favColor = count
+count = 1.2
+```
+
+Swift is statically-typed, so types are checked at compile time.
+
+## Naming
+
+Swift allows almost any character to be used in naming a variable/constant, including Unicode characters and emojis. Some invalid characters are whitespaces, mathematical symbols, arrows, private-use (or invalid) Unicode code points, or line- and box-drawing characters. You may use numbers, as long as it is not the first character in the name. The compiler checks that the convention of a variable name beginning with a letter (or an emoji) is met. It is frowned upon to use reserved Swift keywords as variable/constant names, but it is possible if you surround the name with back ticks. Naming conventions in the community dictate that variable, constant, and function names should begin with a lowercase letter and that class names should begin with an uppercase letter.
+
 # Types
 
 ## Data Types
@@ -44,7 +74,7 @@
   print(height.1) // outputs 8
   ```
   
-- Optional: denoted by `?` after the data type declaration; the name of this type is an optional--while it is your choice to use it, I'm not trying to say that it is optional to be used
+- Optional: denoted by `?` after the data type declaration; the name of this type is an *optional*. (While it is your choice to use it, I'm not trying to say that it is optional to be used.)
 
   * Used in cases where you aren't sure if the value you will assign to your variable will be the right one
   * Occurs when you try to assign a value to a variable or constant by converting it from one data type to another
@@ -75,8 +105,17 @@
 
 Value types used in Swift are:
 
-- `String`: textual data surrounded by quotation marks; an empty `String` can be initialized using `String()` or `""`
-- Character:
+- `String`: textual data surrounded by quotation marks
+
+  * Initialize an empty `String` by declaring a variable/constant and setting it to either `String()` or `""`
+  * Check if a `String` is empty using the `isEmpty` property which returns a Boolean
+  * You *cannot* access a `String`s individual characters by indexing with a number
+  * Walk through a `String` using a `for-in` loop and the `String`s property `characters`
+
+- `Character`: a single character in quotation marks initialized by declaring a variable/constant as a `Character` type
+
+  * Make up a `String`
+  * An array of `Character` values can be cast as a `String` to become a cohesive string
 
 ## Collection Types
 
@@ -86,36 +125,7 @@ Can you put different data types in the same array or list?
 - *Set*:
 - *Dictionary*:
 
-# Variables and Constants
 
-## Declaration
-
-Swift uses **variables** to hold values that can change throughout your program and **constants** to hold values that cannot change once set. To distinguish between these two, Swift requires declaring which one the value is--use `var` to declare a variable and `let` to declare a constant.
-
-While it is necessary to declare variable or constant, it is not necessary to declare a type; Swift is not strongly-typed and infers from the value given what its type is. However, Swift *is* type-safe, so a variable of one type can only hold data of that type. You may choose to specify which type the variable or constant can hold by using a **type annotation**. After the variable or constant name, type a colon, a space, and the type.
-
-To change the type of a variable, enclose it in parentheses and precede it with the desired type, like this: `String(40)`. If you perform a narrowing conversion and convert a `Double` to an `Int`, the value is rounded to its floor--`Int(5.89)` is 5 and `Int(-2.8)` is -2. If you combine an `Int` and a floating-point number in Swift, you do not have to "manually" convert it; the result is inferred to be a `Double`, which is a widening conversion.
-
-```swift
-// simply declare a variable/constant
-let prop: String
-
-// initialize a variable/constant
-var count: Int = 1
-
-// also okay
-var favColor = "yellow"
-
-// not okay, and will return an error
-favColor = count
-count = 1.2
-```
-
-Swift is statically-typed, so types are checked at compile time.
-
-## Naming
-
-Swift allows almost any character to be used in naming a variable/constant, including Unicode characters and emojis. Some invalid characters are whitespaces, mathematical symbols, arrows, private-use (or invalid) Unicode code points, or line- and box-drawing characters. You may use numbers, as long as it is not the first character in the name. The compiler checks that the convention of a variable name beginning with a letter (or an emoji) is met. It is frowned upon to use reserved Swift keywords as variable/constant names, but it is possible if you surround the name with back ticks.
 
 ## Printing
 
