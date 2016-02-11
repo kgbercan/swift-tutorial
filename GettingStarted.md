@@ -35,7 +35,7 @@ Xcode has a feature called [Playground] (https://developer.apple.com/library/ios
 
 **To use Playground:** Open Xcode, select File > New > Playground. You are prompted to name your .playground file, so you can save your work. When Playground opens, the default code is:
 
-```
+```swift
 //: Playground - noun: a place where people can play
 
 import UIKit
@@ -55,7 +55,7 @@ In the top right hand corner of the Xcode window, you see three buttons that con
 
 "Hello, world" in Swift looks like this:
 
-```
+```swift
 // comments are preceded by two forward slashes
 /* or you can write a multi-line comment
    with a forward slash followed by an asterisk
