@@ -119,7 +119,7 @@ Swift allows almost any character to be used in naming a variable/constant, incl
 
 ## Printing
 
-
+semicolons
 
 4. If you put this line (or something similar) in a program and try to print x, what does it do? If it
 doesn't compile, why? Is there something you can do to make it compile?
