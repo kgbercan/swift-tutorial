@@ -1,10 +1,8 @@
-# Variables and Constants
-
-## Data Types
+# Data Types
 
 Data types used in Swift are:
 
-- *String*: textual data; encased in quotation marks
+- *String*: textual data; surrounded by quotation marks
 - Integer: a signed or unsigned whole number; follows the following naming convention example: an 8-bit unsigned number is declared `UInt8` and a 32-bit signed number is declared `Int32`.
 
   * `Int`: the Integer type with the same word-size as your machine; the default that Swift assigns to an integer, so you don't have to declare what size you want to use or worry about signs
@@ -16,9 +14,10 @@ Data types used in Swift are:
   * `Float`: 32-bit representation; should not really be used unless a `Double` for some reason is less-preferred
 
 - Boolean value: `Bool`; holds `true` or `false`
-- `Tuple`: multiple values of any data type (which can vary from each other) presented as one unit
+- Tuple: multiple values of any data type (which can vary from each other) presented as one unit
 
-  * Is encased by parentheses and separated by commas
+  * Surrounded by parentheses and separated by commas
+  * Data type declared using each component's type, *not* by a general type called Tuple (which does not exist)
   * Best used for storing temporary values and returning multiple values from a function
   * Can be *decomposed* as follows:
   
@@ -46,6 +45,34 @@ Data types used in Swift are:
   print(height.1) // outputs 8
   ```
   
+- Optional: denoted by `?` after the data type declaration; the name of this type is an optional--while it is your choice to use it, I'm not trying to say that it is optional to be used
+
+  * Used in cases where you aren't sure if the value you will assign to your variable will be the right one
+  * Occurs when you try to assign a value to a variable or constant by converting it from one data type to another
+  * Allows the variable to either take a value of a specified data type or to take the value `nil`
+  * Can be inferred, meaning you do not have to go out of your way to use it
+  * If you will set a variable to `nil` in the future, declare its type followed by `?`
+  
+  ```
+  var a = "1"
+  var y = Int(a)
+  // prints "1"
+  print(y)
+  
+  var b = "b"
+  var z = Int(b)
+  // prints "nil"
+  print(z)
+  
+  var c: Bool? = false
+  c = true
+  c = nil
+  
+  // not possible and will return an error
+  var b = nil
+  ```
+
+# Variables and Constants
 
 ## Declaration
 
@@ -53,8 +80,22 @@ Swift uses **variables** to hold data that can change throughout your program an
 
 While it is necessary to declare variable or constant, it is not necessary to declare a data type; Swift is not strongly-typed and infers from the data given what its type is. However, Swift *is* type-safe, so a variable of one data type can only hold data of that data type. You may choose to specify which data type the variable or constant can hold by using a **type annotation**. After the variable or constant name, type a colon, a space, and the data type.
 
-If you combine an `Int` and a floating-point number in Swift, the result is inferred to be a `Double`, which is a widening conversion. You can also change the type of a variable by enclosing it in parentheses and preceding it with the desired data type. If you perform a narrowing conversion and convert a `Double` to an `Int`, the value is rounded to its floor--`Int(5.89)` is 5 and `Int(-2.8)` is -2.
+If you combine an `Int` and a floating-point number in Swift, the result is inferred to be a `Double`, which is a widening conversion. You can also change the type of a variable by enclosing it in parentheses and preceding it with the desired data type, like this: `String(40)`. If you perform a narrowing conversion and convert a `Double` to an `Int`, the value is rounded to its floor--`Int(5.89)` is 5 and `Int(-2.8)` is -2.
 
+```
+// simply declare a variable/constant
+let prop: String
+
+// initialize a variable/constant
+var count: Int = 1
+
+// also okay
+var favColor = "yellow"
+
+// not okay, and will return an error
+favColor = count
+count = 1.2
+```
 
 Swift is statically-typed, so data types are checked at compile time.
 
