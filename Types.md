@@ -20,6 +20,10 @@ var favColor = "yellow"
 // not okay and will return errors
 favColor = count
 count = 1.2
+
+x = "5" + 6
+
+
 ```
 
 Swift is statically-typed, so types are checked at compile time.
@@ -74,7 +78,7 @@ Swift allows almost any character to be used in naming a variable/constant, incl
   print(height.1) // outputs 8
   ```
   
-- Optional: denoted by `?` after the data type declaration; the name of this type is an *optional*. (While it is your choice to use it, I'm not trying to say that it is optional to be used.)
+- Optional: denoted by `?` after the data type declaration; the *name* of this type an *optional*. (While it is your choice to use it, I'm not trying to say that it is optional to be used.)
 
   * Used in cases where you aren't sure if the value you will assign to your variable will be the right one
   * Occurs when you try to assign a value to a variable or constant by converting it from one data type to another
@@ -127,14 +131,27 @@ Can you put different data types in the same array or list?
 
 
 
-## Printing
+## Concatenation and Interpolation
 
-semicolons
+### Concatenation
 
-4. If you put this line (or something similar) in a program and try to print x, what does it do? If it
-doesn't compile, why? Is there something you can do to make it compile?
-x = "5" + 6
+`String`s can be combined using a plus sign, and a `Character` can be added to a `String` using the `String`s `append()` method. `Character`s cannot be appended to because by definition they are single-character values.
 
+### Interpolation
+
+String interpolation is creating a String value from values of various types. Instead of casting with `String()` and combining it with another `String` using a plus sign, you can refer to the variable or constant by its name, surround it with parentheses, and preceed it with a backslash `\` in the *same* string literal as the rest of your text:
+
+```swift
+let val1 = 5
+let val2 = 6
+let x = val1+val2
+
+// interpolation
+var expr = "\(val1) + \(val2) is \(x)."
+
+// casting and concatentation
+expr = String(val1) + " + " + String(val2) + " is " + String(x) + "."
+```
 
 # Source
 
