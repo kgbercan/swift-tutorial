@@ -123,11 +123,40 @@ Value types used in Swift are:
 
 ## Collection Types
 
-Can you put different data types in the same array or list?
+Collection types are declared as variables or constants and follow the same rule that constants are immutable. All three of Swift's collection types are type safe, e.g., you cannot have an array of multiple data types.
 
-- *Array*:
-- *Set*:
-- *Dictionary*:
+- *Array*: ordered collection of values
+
+  * To initialize an array:
+  ```swift
+  // an array of integers
+  var arry = [Int]()
+  // or
+  var aRRY = [1, 2, 3]
+  ```
+  * To add, remove, and replace values in an array:
+  ```swift
+  // add items
+  arry.append(10, 20, 30)
+  arry += [4, 5, 6]
+  let firstItem = aRRY[0]
+  
+  // replace the first item
+  arry.insert(01, atIndex: 0)
+  
+  // remove the second item
+  arry.remove(atIndex: 1)
+  ```
+
+- *Set*: unordered collection of unique values
+
+  * 
+
+- *Dictionary*: unordered collection of key-value pairs
+
+  * 
+
+
 
 
 
