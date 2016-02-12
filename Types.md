@@ -1,4 +1,4 @@
-**To see some of the code block examples in this tutorial along with more, run the contents of [types.playground](../swift-tutorial/tree/master/types.playground).**
+**To see some of the code block examples in this tutorial along with more, run the contents of [types.playground](types.playground).**
 
 # Variables and Constants
 
