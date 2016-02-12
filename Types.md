@@ -21,9 +21,14 @@ var favColor = "yellow"
 favColor = count
 count = 1.2
 
+// you have to cast a String to an Int to add "5" and 6
+// the next line won't run
 x = "5" + 6
 
-
+// You have to unwrap the optional with an exclamation point when you cast the String to an Int
+// (more about this later)
+var x = Int("5")! + 6
+print(x)
 ```
 
 Swift is statically-typed, so types are checked at compile time.
@@ -85,6 +90,7 @@ Swift allows almost any character to be used in naming a variable/constant, incl
   * Allows the variable to either take a value of a specified data type or to take the value `nil`
   * Can be inferred, meaning you do not have to go out of your way to use it
   * If you will set a variable to `nil` in the future, declare its type followed by `?`
+  * **To use a value that is an optional, you have to follow it with `!` to unwrap it
   
   ```swift
   var a = "1"
