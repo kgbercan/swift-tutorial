@@ -4,13 +4,14 @@
 
 Swift uses **variables** to hold values that can change throughout your program and **constants** to hold values that cannot change once set. To distinguish between these two, Swift requires declaring which one the value is--use `var` to declare a variable and `let` to declare a constant.
 
-While it is necessary to declare variable or constant, it is not necessary to declare a type; Swift is not strongly-typed and infers from the value given what its type is. However, Swift *is* type-safe, so a variable of one type can only hold data of that type. You may choose to specify which type the variable or constant can hold by using a **type annotation**. After the variable or constant name, type a colon, a space, and the type.
+While it is necessary to declare variable or constant, it is not always necessary to declare a type; Swift is not strongly-typed and infers from the value given what its type is. However, Swift *is* type-safe, so a variable of one type can only hold data of that type. You may choose to specify which type the variable or constant can hold by using a **type annotation**. After the variable or constant name, type a colon, a space, and the type. If you declare a variable/constant but don't initialize it, you *must* do this.
 
 To change the type of a variable, enclose it in parentheses and precede it with the desired type, like this: `String(40)`. If you perform a narrowing conversion and convert a `Double` to an `Int`, the value is rounded to its floor--`Int(5.89)` is 5 and `Int(-2.8)` is -2. If you combine an `Int` and a floating-point number in Swift, you do not have to "manually" convert it; the result is inferred to be a `Double`, which is a widening conversion.
 
 ```swift
 // simply declare a variable/constant
 let prop: String
+// the following won't compile:
 let maximum
 
 // initialize a variable/constant
@@ -25,17 +26,16 @@ count = 1.2
 // the next line won't run
 x = "5" + 6
 
-// You have to unwrap the optional with an exclamation point when you cast the String to an Int
+// You have to unwrap the optional with an exclamation point when you cast any String to an Int
 // (more about this later)
 var x = Int("5")! + 6
-print(x)
 ```
 
 Swift is statically-typed, so types are checked at compile time.
 
 ## Naming
 
-Swift allows almost any character to be used in naming a variable/constant, including Unicode characters and emojis. Some invalid characters are whitespaces, mathematical symbols, arrows, private-use (or invalid) Unicode code points, or line- and box-drawing characters. You may use numbers, as long as it is not the first character in the name. The compiler checks that the convention of a variable name beginning with a letter (or an emoji) is met. It is frowned upon to use reserved Swift keywords as variable/constant names, but it is possible if you surround the name with back ticks. Naming conventions in the community dictate that variable, constant, and function names should begin with a lowercase letter and that class names should begin with an uppercase letter.
+Swift allows almost any character to be used in naming a variable/constant, including Unicode characters and emojis. Some invalid characters are whitespaces, mathematical symbols, arrows, private-use (or invalid) Unicode code points, or line- and box-drawing characters. You may use numbers, as long as it is not the first character in the name. The compiler checks that the convention of a variable name beginning with a letter (or an emoji) is met. It is frowned upon to use reserved Swift keywords as variable/constant names, but it is possible if you surround the name with back ticks. Naming conventions in the community dictate that variable, constant, and function names should begin with a lowercase letter and that class names should begin with an uppercase letter. Camelcase seems to be used to create readable names more often than underscores.
 
 # Types
 
@@ -90,25 +90,30 @@ Swift allows almost any character to be used in naming a variable/constant, incl
   * Allows the variable to either take a value of a specified data type or to take the value `nil`
   * Can be inferred, meaning you do not have to go out of your way to use it
   * If you will set a variable to `nil` in the future, declare its type followed by `?`
-  * **To use a value that is an optional, you have to follow it with `!` to unwrap it
+  * **To use an optional, you have to follow it with `!` to unwrap it**
   
   ```swift
-  var a = "1"
-  var y = Int(a)
-  // prints "1"
+  var z = "z"
+  var y = Int(z) // Swift infers that this is an optional
+  // z can never be an Int, so y holds nil
+  // nil doesn't need to be unwrapped
   print(y)
   
-  var b = "b"
-  var z = Int(b)
-  // prints "nil"
-  print(z)
+  var one = "1"
+  var h = Double(one)
+  // if you don't unwrap it, it prints "Optional" with the value
+  print(h)
+  print(h!)
   
-  var c: Bool? = false
-  c = true
-  c = nil
+  // h's type is Double? with the question mark indicating it's an optional
+  h = 2
+  // it's still a Double? even though it holds 2, and it can hold nil
+  h = nil
   
-  // not possible and will return an error
-  var b = nil
+  // you can create an optional right off the bat
+  var b: Bool? = false
+  b = true
+  b = nil
   ```
 
 ## Value Types
@@ -146,15 +151,15 @@ Collection types are declared as variables or constants and follow the same rule
   
   ```swift
   // add items
-  arry.append(10, 20, 30)
-  arry += [4, 5, 6]
+  arry.append(10)
+  arry += [4]
   let firstItem = aRRY[0]
   
-  // replace the first item
-  arry.insert(01, atIndex: 0)
+  // insert at the first item and push everything else up one
+  arry.insert(1, atIndex: 0)
   
   // remove the second item
-  arry.remove(atIndex: 1)
+  arry.removeatIndex(1)
   ```
   
   * To iterate over an array:
@@ -182,7 +187,9 @@ Collection types are declared as variables or constants and follow the same rule
   * To add or remove values in a set:
   
   ```swift
-  catNames.insert("Nimitz","Roxi","Joey")
+  catNames.insert("Nimitz")
+  catNames.insert("Roxi")
+  catNames.insert("Joey")
   catNames.remove("Roxi")
   ```
   
@@ -215,9 +222,12 @@ Collection types are declared as variables or constants and follow the same rule
   // to change the value of a key
   airports["GIG"] = "Rio de Janeiro"
   
-  // you can change it like this too, which also returns the old value
+  // you can also chang it like this, which also returns the old value
   // if the key doesn't exist, it will be created and the method will return nil
-  val new = airports.updateValue("Miami", forKey: "MIA")
+  airports.updateValue("Miami", forKey: "MIA")
+  
+  // the print method prints "ugly" :)
+  print(airports)
   
   // to find a value using a key
   let loc = arCodes[978]
@@ -238,12 +248,11 @@ Collection types are declared as variables or constants and follow the same rule
   // also
   for season in seasons.keys{
      print(season)
-  )
+  }
   // in order
   for shoes in seasons.values.sort(){
      print(shoes)
-  )
-  
+  }
   ```
 
 ## Concatenation and Interpolation
@@ -268,8 +277,10 @@ var expr = "\(val1) + \(val2) is \(x)."
 expr = String(val1) + " + " + String(val2) + " is " + String(x) + "."
 ```
 
-**To see the above code blocks plus more, run my Playground file.**
+**To see the some of these code blocks plus more, run my Playground file.**
 
-# Source
+# Sources
 
-iOS Developer Library https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309 Accessed 10 Feb. 2016
+iOS Developer Library https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309 Accessed 11 Feb. 2016
+
+The Official raywenderlich.com Swift Style Guide https://github.com/raywenderlich/swift-style-guide Accessed 11 Feb. 2016
