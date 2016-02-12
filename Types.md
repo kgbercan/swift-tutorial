@@ -1,3 +1,5 @@
+**To see some of the code block examples in this tutorial along with more, run the contents of [types.playground](../types.playground).**
+
 # Variables and Constants
 
 ## Declaration
@@ -276,8 +278,6 @@ var expr = "\(val1) + \(val2) is \(x)."
 // casting and concatentation
 expr = String(val1) + " + " + String(val2) + " is " + String(x) + "."
 ```
-
-**To see the some of these code blocks plus more, run my Playground file.**
 
 # Sources
 
