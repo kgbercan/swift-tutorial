@@ -128,13 +128,16 @@ Collection types are declared as variables or constants and follow the same rule
 - *Array*: ordered collection of values
 
   * To initialize an array:
+  
   ```swift
   // an array of integers
   var arry = [Int]()
   // or
   var aRRY = [1, 2, 3]
   ```
+  
   * To add, remove, and replace values in an array:
+  
   ```swift
   // add items
   arry.append(10, 20, 30)
@@ -147,18 +150,95 @@ Collection types are declared as variables or constants and follow the same rule
   // remove the second item
   arry.remove(atIndex: 1)
   ```
+  
+  * To iterate over an array:
+  
+  ```swift
+  for index in arry{
+     print(index)
+  }
+  ```
 
-- *Set*: unordered collection of unique values
+- *Set*: unordered collection of values that are not repeated
 
-  * 
+  * Values must be hashable, which Swift's basic types are
+  * Can be used to perform set operations (discrete mathematics) in Swift
+  * To initialize a set:
+  
+  ```swift
+  // if you declare it this way, you must specify a type
+  var catNames = Set<String>()
+  
+  // but this way, Swift can infer from the values that it's a set of Strings
+  var genres: Set = ["romance", "science fiction", "comedy"]
+  ```
+
+  * To add or remove values in a set:
+  
+  ```swift
+  catNames.insert("Nimitz","Roxi","Joey")
+  catNames.remove("Roxi")
+  ```
+  
+  * To iterate over a set:
+  
+  ```swift
+  // add sort() to print a sorted list
+  for cat in catNames.sort(){
+     print(cat)
+  }
+  ```
 
 - *Dictionary*: unordered collection of key-value pairs
 
-  * 
+  * To initialize a dictionary:
+  
+  ```swift
+  var seasons = [String: String]()
+  var airports: [String: String] = ["BOS": "Logan", "GRU": "Guarulhos", "GIG": "Galeao"]
+  var arCodes = [978: "North Shore", 617: "Boston", 603: "New Hampshire"]
+  ```
 
-
-
-
+  * To change, add, or remove values from a dictionary:
+  
+  ```swift
+  // to add a new key:value pair
+  seasons["summer"] = "flip flops"
+  seasons["winter"] = "boots"
+  
+  // to change the value of a key
+  airports["GIG"] = "Rio de Janeiro"
+  
+  // you can change it like this too, which also returns the old value
+  // if the key doesn't exist, it will be created and the method will return nil
+  val new = airports.updateValue("Miami", forKey: "MIA")
+  
+  // to find a value using a key
+  let loc = arCodes[978]
+  
+  // to remove a value
+  arCodes[603] = nil
+  //but return the value
+  let mia = airports.removeValueForKey("MIA")
+  ```
+  
+  * To iterate over a dictionary:
+  
+  ```swift
+  for (season, shoes) in seasons{
+     print(shoes)
+  }
+  
+  // also
+  for season in seasons.keys{
+     print(season)
+  )
+  // in order
+  for shoes in seasons.values.sort(){
+     print(shoes)
+  )
+  
+  ```
 
 ## Concatenation and Interpolation
 
@@ -181,6 +261,8 @@ var expr = "\(val1) + \(val2) is \(x)."
 // casting and concatentation
 expr = String(val1) + " + " + String(val2) + " is " + String(x) + "."
 ```
+
+**To see the above code blocks plus more, run my Playground file.**
 
 # Source
 
