@@ -13,7 +13,8 @@ no fall through
 # Loops
 
 ## For-in
-A for-in loop runs a block of code for each item in a sequence. To use one, begin with the reserved word `for`, follow with a variable name or an underscore `_` (only if you don't need to access the value), `in`, and a range. The variable does not have to be declared, as it is implied in the for-in loop. If you want to walk through the lenght of an array or dictionary, you can refer to the name of the array/dictionary instead of providing a range. The block of code to be performed in the range should be enclosed in curly brackets.
+
+A for-in loop runs a block of code for each item in a sequence. To use one, begin with the reserved word `for`, follow with a variable name or an underscore `_` (only if you don't need to access the value), `in`, and a range. The variable does not have to be declared, as it is implied in the for-in loop. If you want to walk through the length of an array or dictionary, you can refer to the name of the array/dictionary instead of providing a range. The block of code to be performed in the range should be enclosed in curly brackets.
 
 ```swift
 // ... is the closed range operator, so "Betelgeuse" will print 3 times
@@ -28,8 +29,15 @@ for letter in alpha{
 ```
 
 ## For
-A for loop runs a block of code until a condition is met, usually by incrementing a counter in the loop.
 
+A for loop runs a block of code until a condition is met, usually by incrementing a counter in the loop. The structure of a for loop is: `for` *initialization*; *condition*; *increment*{ *code to be performed each time* }. 
+
+```swift
+// this for loop rows crew
+for var meters = 0; meters < 2000; meters += 10{
+   print("Legs, body, arms\nArms, body, legs")
+}
+```
 
 ## While
 
@@ -37,3 +45,6 @@ break, continue: transfer the flow of execution to another point in your code
 
 anything like Perl's “unless” ?
 
+# Source
+
+iOS Developer Library https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html#//apple_ref/doc/uid/TP40014097-CH9-ID120 Accessed 29 Feb. 2016
