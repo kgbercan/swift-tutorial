@@ -14,7 +14,7 @@ no fall through
 
 ## For-in
 
-A for-in loop runs a block of code for each item in a sequence. To use one, begin with the reserved word `for`, follow with a variable name or an underscore `_` (only if you don't need to access the value), `in`, and a range. The variable does not have to be declared, as it is implied in the for-in loop. If you want to walk through the length of an array or dictionary, you can refer to the name of the array/dictionary instead of providing a range. The block of code to be performed in the range should be enclosed in curly brackets.
+A `for-in` loop runs a block of code for each item in a sequence. To use one, begin with the reserved word `for`, follow with a variable name or an underscore `_` (only if you don't need to access the value), `in`, and a range. The variable does not have to be declared, as it is implied in the `for-in` loop. If you want to walk through the length of an array or dictionary, you can refer to the name of the array/dictionary instead of providing a range. The block of code to be performed in the range should be enclosed in curly brackets.
 
 ```swift
 // ... is the closed range operator, so "Betelgeuse" will print 3 times
@@ -30,13 +30,20 @@ for letter in alpha{
 
 ## For
 
-A for loop runs a block of code until a condition is met, usually by incrementing a counter in the loop. The structure of a for loop is: `for` *initialization*; *condition*; *increment*{ *code to be performed each time* }. 
+A `for` loop runs a block of code until a condition is met, usually by incrementing a counter in the loop. The structure of a `for` loop is: `for` *initialization*; *condition*; *increment*`{` *code to be performed each time* `}`. The code inside the curly brackets is executed until the condition is met, and any variables/constants declared in the `for` loop have a scope limited to the loop. To access the values outside of the loop, they must have been declared before the loop.
 
 ```swift
-// this for loop rows crew
+// these for loops row crew
+
 for var meters = 0; meters < 2000; meters += 10{
-   print("Legs, body, arms\nArms, body, legs")
+   print("Legs, body, arms\nArms, body, legs\n\n")
 }
+
+var m
+for m = 0; m < 500; m += 50{
+   print("We are in the sprint\n\n"
+}
+print("Good job--you sprinted your last \(m) meters.")
 ```
 
 ## While
