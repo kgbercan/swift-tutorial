@@ -135,6 +135,10 @@ The `continue` statement tells a loop to leave the iteration it is in and to sta
 var reps = 10;
 while reps < 15{
     reps++
+    
+    // on number 13, the continue statement will bring us back to the top of the loop
+    // so it will not print reps for 13, it will go to 14
+    
     if reps == 13{
         print("I want to skip this one")
         continue
