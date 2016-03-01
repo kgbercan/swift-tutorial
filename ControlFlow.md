@@ -1,3 +1,5 @@
+**To see some of the code block examples in this tutorial along with more, run the contents file of [ControlFlow.playground](ControlFlow.playground).**
+
 # Conditionals
 
 Conditional statements execute code once if a condition is met or different code if the condition is not met.
@@ -62,7 +64,7 @@ case let (x, y):
 
 ## Guard
 
-`Guard` is an alternative to an `if` statement to use when you know you will need a control transfer statement or when you will redirect to a function. It is written with the reserved word `guard` followed by variable/constant with a boolean value, then the reserved word `else` with code to be executed in curly brackets. It seems to be particularly useful when throwing errors, and since I am not discussing error handling just yet, I cannot give a pertinent example of a `guard` statement. However, Natasha The Robot writes a compelling argument for using `guard` instead of `if` and shows simple code to demonstrate here https://www.natashatherobot.com/swift-2-error-handling/ and here: https://www.natashatherobot.com/swift-guard-better-than-if/
+`Guard` is an alternative to an `if` statement to use when you know you will need a control transfer statement or when you will redirect to a function. It is written with the reserved word `guard` followed by variable/constant with a boolean value, then the reserved word `else` with code to be executed in curly brackets. It seems to be particularly useful when throwing errors, and since I am not discussing error handling just yet, I cannot give a pertinent example of a `guard` statement. However, Natasha The Robot writes a compelling argument for using `guard` instead of `if` and shows simple code to demonstrate [here] (https://www.natashatherobot.com/swift-2-error-handling/) and [here] (https://www.natashatherobot.com/swift-guard-better-than-if/).
 
 # Loops
 
@@ -175,4 +177,5 @@ if height/12 >= 6 || weight/0 == 100{
 # Source
 
 iOS Developer Library https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html#//apple_ref/doc/uid/TP40014097-CH9-ID120 Accessed 29 Feb. 2016
+
 Natasha the Robot https://www.natashatherobot.com/swift-2-error-handling/ Accessed 29 Feb. 2016
