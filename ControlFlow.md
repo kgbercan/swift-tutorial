@@ -60,10 +60,9 @@ case let (x, y):
 }
 ```
 
-
 ## Guard
 
-
+`Guard` is an alternative to an `if` statement to use when you know you will need a control transfer statement or when you will redirect to a function. It is written with the reserved word `guard` followed by variable/constant with a boolean value, then the reserved word `else` with code to be executed in curly brackets. It seems to be particularly useful when throwing errors, and since I am not discussing error handling just yet, I cannot give a pertinent example of a `guard` statement. However, Natasha The Robot writes a compelling argument for using `guard` instead of `if` and shows simple code to demonstrate here https://www.natashatherobot.com/swift-2-error-handling/ and here: https://www.natashatherobot.com/swift-guard-better-than-if/
 
 # Loops
 
@@ -128,18 +127,52 @@ Control transfer statements redirect the flow of execution to a different point 
 
 ## Continue
 
-The continue statement tells a loop to stop what it is doing and start again at the beginning of the next iteration through the loop. It says “I am done with the current loop iteration” without leaving the loop altogether.
+The `continue` statement tells a loop to leave the iteration it is in and to start over with the next iteration. It is only allowed inside of a loop.
 
-
+```swift
+var reps = 10;
+while reps < 15{
+    reps++
+    if reps == 13{
+        print("I want to skip this one")
+        continue
+    }
+    print(reps)
+}
+```
 
 ## Break
 
+`Break` tells the program to leave the code that it is in entirely. It can be useful in a loop if you think you may get stuck in an infinite loop, or if there may be a condition where you will want to exit the loop. Many programmers do not agree with the use of `break` for this purpose, but you can do whatever you want because it's your code and no one can tell you how to live your life. `Break` is especially useful in a `switch` block if you want to specify a case but don't have any code for it and you just want it to be ignored.
 
+```swift
+let age = 13
+switch age{
+case 5...11:
+    print("You are in elementary school.")
+case 12...17:
+    // teenagers are hard to talk to
+    break
+case 18...25:
+    print("You may be persuing higher education")
+default:
+    print("You are likely not in school anymore.")
+}
+```
 
-short-circuit evaluation
+# Things to Keep in Mind
 
-anything like Perl's “unless” ?
+- Any variables or constants initialized inside of a loop or a conditional statement is limited in scope to that block. I.e., if you initialize a variable inside of an `if` statement, or a `while` loop, or any of the control flow structures I just taught you about, you cannot access that variable outside of the block where you initialized it.
+- Short-circuit logic is not supported in Swift. This means if you are considering two conditions (or more) and one of them is completely not okay, like division by zero, even if that condition is not checked (say the first condition is perfectly reasonable, like division by 1, and it is and *or* situation), Swift throws an error. In some languages, illogical code can remain in the program and as long as it isn't checked, there will be no problem. Example:
+```swift
+var height = 70
+var weight = 170
+if height/12 >= 6 || weight/0 == 100{
+    print("You will never get to this point because you cannot divide by zero and Swift is mad at you for trying.")
+}
+```
 
 # Source
 
 iOS Developer Library https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html#//apple_ref/doc/uid/TP40014097-CH9-ID120 Accessed 29 Feb. 2016
+Natasha the Robot https://www.natashatherobot.com/swift-2-error-handling/ Accessed 29 Feb. 2016
