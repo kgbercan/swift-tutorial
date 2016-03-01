@@ -1,16 +1,73 @@
 # Conditionals
 
-## If
+Conditional statements execute code once if a condition is met or different code if the condition is not met.
 
-short-circuit evaluation
-“dangling else"
+## If/Else If/Else
+
+`If` statements are made with the `if` reserved word followed by a condition with the associated code in curly brackets after it. Optionally, and as good programming practice, you can have an `else` statement after, which is a catch-all in the case that the condition is not met. You write the reserved word `else` and simply follow with the code to be executed in curly brackets. But say you don't have only 2 outcomes--there 3 or 4 cases, or even more: follow your `if` block with `else if`*condition* `{` *code to be executed* `}`. You can have an unlimited number of these.
+
+You can have an `if` statement by itself, but not an `else if` and not an `else`. Further, you must surround the code to be executed with curly brackets; otherwise, the `if`/`else if`/`else` statement does not compile and run. This prevents the "dangling else" problem that some languages have where it becomes unclear what code goes with which nested sets of `if` statements.
+
+```
+var temp = 50
+if temp <= 40 {
+    print("It's cold. You should wear a scarf.")
+}
+else if 40 < temp && temp <= 55 {
+    print("It's not too cold out, but wear a jacket.")
+}
+else {
+    print("It's warm!")
+}
+```
+
+## Switch
+
+`Switch` statements do the same work as a bunch of `if`/`else if` statements, but more cleanly. It checks a given input for matches, or cases, and then executes the code under the appropriate case.
+
+To write a `switch` statement, begin with the reserved word `switch` followed by a value which you are considering. Type an opening curly bracket, and list the cases. To define a case, use the reserved word `case` and follow with a value to be matched, then a colon. Indented on the next line, provide the code to be executed if that value is matched by the given considered value. You can have as many cases as you'd like, as long as each one has code; you may not leave a case empty. At the end, since it is practically impossible to consider each and every potential case, use the reserved word `default` with a colon to provide code to be executed if none of the values above match. The `default` block is not necessary, but is recommended. Close the cases with a closing curly bracket.
+
+In Swift, there is no fallthrough like in some other languages, where if a condition is met for one case and you do not exit it properly, all of the consequent cases are also executed. Thus, in Swift, there is no need to use a `break` to exit a case, as it happens implicitly. If you would like fallthrough to occur, Swift has given us the gift of `fallthrough`, a reserved word you can add to any case to perform all the consequent code *except for the default*, as well.
+
+```swift
+var state = "MA"
+switch state{
+case "IL","IN","MI","OH","WI","IA","KS","MN","MO","NE","ND","SD":
+    print("Midwest")
+case "NJ","NY","PA", "RI":
+    print("Middle Atlantic")
+case "CT","ME","MA","NH","VT":
+    print("New England")
+    fallthrough
+case "Somewhere in New England":
+    print("New England is the best region in the country.")
+default:
+    print("That is not an American state, or I was too lazy to type all the abbreviations. Sorry.")
+}
+```
+
+Additionally, Swift's `switch` statements have the reserved word `where`. It can be used to check for additional conditions. Apple's documentation (which can be accessed in the source at the very end of this document) gives a lovely example:
+
+```swift
+let yetAnotherPoint = (1, -1)
+switch yetAnotherPoint {
+case let (x, y) where x == y:
+    print("(\(x), \(y)) is on the line x == y")
+case let (x, y) where x == -y:
+    print("(\(x), \(y)) is on the line x == -y")
+case let (x, y):
+    print("(\(x), \(y)) is just some arbitrary point")
+}
+```
+
 
 ## Guard
 
-## Switch
-no fall through
+
 
 # Loops
+
+Loops *loop* through code--they execute the same chunk of statements over and over until a condition is met.
 
 ## For-in
 
@@ -19,12 +76,12 @@ A `for-in` loop runs a block of code for each item in a sequence. To use one, be
 ```swift
 // ... is the closed range operator, so "Betelgeuse" will print 3 times
 for _ in 1...3{
-   print("Betelgeuse")
+    print("Betelgeuse")
 }
 
 var alpha = ["A","B","C","D"]
 for letter in alpha{
-   print(letter)
+    print(letter)
 }
 ```
 
@@ -36,19 +93,50 @@ A `for` loop runs a block of code until a condition is met, usually by increment
 // these for loops row crew
 
 for var meters = 0; meters < 2000; meters += 10{
-   print("Legs, body, arms\nArms, body, legs\n\n")
+    print("Legs, body, arms\nArms, body, legs\n\n")
 }
 
-var m
+var m = 0
 for m = 0; m < 500; m += 50{
-   print("We are in the sprint\n\n"
+    print("We are in the sprint\n\n")
 }
 print("Good job--you sprinted your last \(m) meters.")
 ```
 
 ## While
 
-break, continue: transfer the flow of execution to another point in your code
+A `while` loop performs a code block until a given condition is no longer true. It is a good alternative to a `for` loop if you do not know when the condition will change. Swift has two kinds of `while` loops: `while`, which checks the condition at the start of each loop, and `repeat-while`, which checks the condition at the end of each loop. `Repeat-while` is useful if you want the code in the loop to execute at least once. With both of these, be careful not to get yourself into an infinite loop--if you don't change the condition inside the loop, you will get stuck.
+
+To write a while loop, start with the reserved word `while` and follow with the condition, then an opening curly bracket, the code to loop over, and a closing curly bracket to signify the end of the loop. To write a `repeat-while` loop, use the reserved word `repeat`, follow with your code in curly brackets, and add the `while` condition to the end.
+
+```swift
+var allergic = true
+while allergic{
+    print("You can't get a cat if you are allergic!")
+    allergic = false
+}
+
+repeat{
+    print("I thought you were allergic to cats...")
+    allergic = true
+} while !allergic
+```
+
+# Control Transfer Statements
+
+Control transfer statements redirect the flow of execution to a different point in the code. Swift has `continue`, `break`, `fallthrough`, `return`, and `throw`. `Fallthrough` was discussed above in the `switch` section, so I'll skip it here, and `return` and `throw` are more relevant when considering functions, so I will save that for a future discussion.
+
+## Continue
+
+The continue statement tells a loop to stop what it is doing and start again at the beginning of the next iteration through the loop. It says “I am done with the current loop iteration” without leaving the loop altogether.
+
+
+
+## Break
+
+
+
+short-circuit evaluation
 
 anything like Perl's “unless” ?
 
