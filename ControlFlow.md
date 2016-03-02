@@ -29,10 +29,16 @@ else {
 
 To write a `switch` statement, begin with the reserved word `switch` followed by a value which you are considering. Type an opening curly bracket, and list the cases. To define a case, use the reserved word `case` and follow with a value to be matched, then a colon. Indented on the next line, provide the code to be executed if that value is matched by the given considered value. You can have as many cases as you'd like, as long as each one has code; you may not leave a case empty. At the end, since it is practically impossible to consider each and every potential case, use the reserved word `default` with a colon to provide code to be executed if none of the values above match. The `default` block is not necessary, but is recommended. Close the cases with a closing curly bracket.
 
-In Swift, there is no fallthrough like in some other languages, where if a condition is met for one case and you do not exit it properly, all of the consequent cases are also executed. Thus, in Swift, there is no need to use a `break` to exit a case, as it happens implicitly. If you would like fallthrough to occur, Swift has given us the gift of `fallthrough`, a reserved word you can add to any case to perform all the consequent code *except for the default*, as well.
+In Swift, there is no fallthrough like in some other languages, where if a condition is met for one case and you do not exit it properly, all of the consequent cases are also executed. Thus, in Swift, there is no need to use a `break` to exit a case, as it happens implicitly. If you would like fallthrough to occur, Swift has given us the gift of `fallthrough`, a reserved word you can add to any case to perform the next case, as well. If you want it to fall through all the way through the default, you have to put `fallthrough` in each case.
 
 ```swift
 var state = "MA"
+
+// because I put fallthrough in the last two cases, this will print:
+//     New England
+//     New England is the best region in the country.
+//     I was too lazy to type all the abbreviations. Sorry.
+
 switch state{
 case "IL","IN","MI","OH","WI","IA","KS","MN","MO","NE","ND","SD":
     print("Midwest")
@@ -43,8 +49,9 @@ case "CT","ME","MA","NH","VT":
     fallthrough
 case "Somewhere in New England":
     print("New England is the best region in the country.")
+    fallthrough
 default:
-    print("That is not an American state, or I was too lazy to type all the abbreviations. Sorry.")
+    print("I was too lazy to type all the abbreviations. Sorry.")
 }
 ```
 
