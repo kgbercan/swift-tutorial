@@ -1,3 +1,5 @@
+**To see the code block examples in this tutorial along with more, run the contents of [functions_scope.playground](functions_scope.playground).**
+
 # Functions
 
 Functions are blocks of code that can be called by a name to perform specified tasks and typically are meant to be used repeatedly in a program.
@@ -143,15 +145,45 @@ makeZero(5)
 
 ## Loops
 
-Declare a variable (say, x) in the main body of your program. Then declare a variable of the
-same name inside of a loop. Is there a conflict? Is the old variable overwritten, or do you now
-have two variables of the same name?
+Variables created in a loop have scope limited to that loop, so if you declare a variable in the body of your code, then declare a variable of the same name inside a loop, you now have two variables of the same name.
+
+```swift
+// variable in a loop
+var b = "b"
+//prints b
+print("before loop, b = : \(b)")
+if(3<4){
+    var b = "abc"
+    //prints abc
+    print("in loop, b = : \(b)")
+}
+//prints b
+print("after loop, b = : \(b)")
+```
 
 ## Functions
 
+Functions cannot access any values declared outside of it. Likewise, variables in a function have scope limited to that function.
 
+For a function to change a value in the body of a program, you can add the reserved word `inout` and a space in front of the parameter name in the function definition. In the body of the code where you call the function, place an ampersand `&` in front of the argument without a space.
+
+```swift
+// in-out parameters
+func changeLetter(inout d: String) -> String{
+    d = "d"
+    print("in function, d = : \(d)")
+    return(d)
+}
+var c = "c"
+//prints c
+print("before function, c = : \(c)")
+changeLetter(&c)
+print("after function, c = : \(c)")
+```
 
 ## Global Variables
+
+Global variables in Swift are those that are declared outside of any function, method, closure, or type context. There is no keyword or reserved word used to write a global variable.
 
 ## Passing by Value/Reference
 
@@ -168,7 +200,9 @@ print a
 print b
 
 
-# Source
+# Sources
+
+Andy Bargh http://andybargh.com/lifetime-scope-and-namespaces-in-swift/#Scope Accessed 24 Mar. 2016
 
 iOS Developer Library https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158 Accessed 24 Mar. 2016
 
