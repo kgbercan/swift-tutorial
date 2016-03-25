@@ -1,4 +1,4 @@
-**To see the code block examples in this tutorial along with more, run the contents of [functions_scope.playground](functions_scope.playground).**
+**To see the code block examples in this tutorial along with more, run the contents of [Functions_Scope.playground](Functions_Scope.playground).**
 
 # Functions
 
