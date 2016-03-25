@@ -113,12 +113,31 @@ func printHalf(half: (Double) -> Double, i: Double){
 printHalf(half, i: 45)
 ```
 
-## Nested Functions
+## Nested and Recursive Functions
 
-Functions can be defined inside of other functions. Those inner functions are only available inside the function(s) they are defined in--they do not have global scope.
+Functions can be defined inside of other functions. Those inner functions are *nested* and are only available inside the function(s) they are defined in--they do not have global scope.
 
-## Recursion
+Similarly, you can call a function in itself. This is recursion. Call it the same way you would call a different function.
 
+```swift
+//recursion
+func makeZero(number: Int){
+    var i = number
+    if i < 0{
+        i += 1
+        makeZero(i)
+    }
+    else if i > 0 {
+        i -= 1
+        makeZero(i)
+    }
+    else{
+        print(i)
+    }
+}
+
+makeZero(5)
+```
 
 # Variable Scope
 
@@ -152,4 +171,6 @@ print b
 # Source
 
 iOS Developer Library https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158 Accessed 24 Mar. 2016
+
+We Heart Swift https://www.weheartswift.com/recursion/ Accessed 24 Mar. 2016
 
