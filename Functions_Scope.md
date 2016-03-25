@@ -163,7 +163,7 @@ print("after loop, b = : \(b)")
 
 ## Functions
 
-Functions cannot access any values declared outside of it. Likewise, variables in a function have scope limited to that function.
+Functions cannot access any values declared outside of it. By default, the value of a variable outside of a function remains unchanged in the body/global scope of the program if passed to a function. Likewise, variables in a function have scope limited to that function.
 
 For a function to change a value in the body of a program, you can add the reserved word `inout` and a space in front of the parameter name in the function definition. In the body of the code where you call the function, place an ampersand `&` in front of the argument without a space.
 
@@ -187,24 +187,30 @@ Global variables in Swift are those that are declared outside of any function, m
 
 ## Passing by Value/Reference
 
-(Hint: write a function that alters its input, but doesn't return it. Pass it a variable, and see if
-the alteration is visible in main after you call the function)
+Swift passes by value.
 
-If you run this code (or the equivalent) in your language, what is the output? What does that tell
-you about how the language handles assignments?
-char [] a = {'c','a','t'}
-char [] b = {'d','o','g'}
-a=b
-b[1] = 'u'
-print a
-print b
-
+```swift
+// passing by value
+var d = ["c","a","t"]
+var e = ["d","o","g"]
+d=e
+e[1] = "u"
+for dd in d{
+    print(dd)
+    // prints dog
+}
+for ee in e{
+    print(ee)
+    // prints dug
+}
+```
 
 # Sources
 
 Andy Bargh http://andybargh.com/lifetime-scope-and-namespaces-in-swift/#Scope Accessed 24 Mar. 2016
 
+Facets of Swift, Part 3: Values and References https://medium.com/swift-programming/facets-of-swift-part-3-values-and-references-d2aac239d6f4#.4hbpnd4fg Accessed 24 Mar. 2016
+
 iOS Developer Library https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158 Accessed 24 Mar. 2016
 
 We Heart Swift https://www.weheartswift.com/recursion/ Accessed 24 Mar. 2016
-
